@@ -19,5 +19,6 @@ namespace PizzaApp.Models
 
         public List<Pizza> Pizzas { get; set; }
         public string Status { get; set; }
+        public string Address { get; set; }
     }
 }

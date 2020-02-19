@@ -1,0 +1,17 @@
+﻿@model PizzaApp.Models.Guest
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+@using (Html.BeginForm("SearchGuest", "Ordering"))
+{
+    <h4>A rendelő neve:</h4>
+    @Html.TextBoxFor(g => g.Name, new { @class = "form-control" })
+
+    <div>
+        <button type="submit" class="btn btn-primary">Keresés</button>
+    </div>
+}

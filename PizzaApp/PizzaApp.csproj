@@ -133,6 +133,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AddressController.cs" />
+    <Compile Include="Controllers\GuestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderingController.cs" />
     <Compile Include="Controllers\PizzasController.cs" />
@@ -158,6 +160,10 @@
     <Compile Include="Migrations\202002191234466_AddOrders.cs" />
     <Compile Include="Migrations\202002191234466_AddOrders.designer.cs">
       <DependentUpon>202002191234466_AddOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002191634361_AddAddressStringToOrder.cs" />
+    <Compile Include="Migrations\202002191634361_AddAddressStringToOrder.designer.cs">
+      <DependentUpon>202002191634361_AddAddressStringToOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
@@ -203,10 +209,13 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Ordering\Index.cshtml" />
+    <Content Include="Views\Guest\Register.cshtml" />
+    <Content Include="Views\Address\New.cshtml" />
+    <Content Include="Views\Ordering\SearchGuest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Ordering\" />
     <Folder Include="Views\Pizzas\" />
   </ItemGroup>
   <ItemGroup>
@@ -237,6 +246,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002191234466_AddOrders.resx">
       <DependentUpon>202002191234466_AddOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002191634361_AddAddressStringToOrder.resx">
+      <DependentUpon>202002191634361_AddAddressStringToOrder.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
