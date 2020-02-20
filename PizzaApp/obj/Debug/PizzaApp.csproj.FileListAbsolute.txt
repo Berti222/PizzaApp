@@ -89,3 +89,5 @@ C:\Users\Berti\source\repos\PizzaApp\PizzaApp\obj\Debug\PizzaApp.Migrations.AddP
 C:\Users\Berti\source\repos\PizzaApp\PizzaApp\obj\Debug\PizzaApp.Migrations.AddDeliverers.resources
 C:\Users\Berti\source\repos\PizzaApp\PizzaApp\obj\Debug\PizzaApp.Migrations.AddOrders.resources
 C:\Users\Berti\source\repos\PizzaApp\PizzaApp\obj\Debug\PizzaApp.Migrations.AddAddressStringToOrder.resources
+C:\Users\Berti\source\repos\PizzaApp\PizzaApp\obj\Debug\PizzaApp.Migrations.UpdateDataInPizzaTable.resources
+C:\Users\Berti\source\repos\PizzaApp\PizzaApp\obj\Debug\PizzaApp.Migrations.UpdateDataInDeliverersTable.resources

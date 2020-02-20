@@ -51,11 +51,19 @@ namespace PizzaApp.Controllers
             return View(singleGuestInList);
         }
 
-        public ActionResult PizzaOrdering(Guest guest)
+        public ActionResult PizzaOrdering(int id)
         {
+            Address address = _context.Addresses.Where(a => a.Id == id).SingleOrDefault();
+
+            if (address == null)
+                return HttpNotFound();
+
+            Guest guest = _context.Guests.Where(g => g.Id == address.GusetId).SingleOrDefault();
+
             Order order = new Order();
 
             order.GuestId = guest.Id;
+            order.Address = address.GuestAddress;
             order.Guest = guest;
 
             return View(order);

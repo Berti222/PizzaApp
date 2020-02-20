@@ -137,7 +137,6 @@
     <Compile Include="Controllers\GuestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderingController.cs" />
-    <Compile Include="Controllers\PizzasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -164,6 +163,14 @@
     <Compile Include="Migrations\202002191634361_AddAddressStringToOrder.cs" />
     <Compile Include="Migrations\202002191634361_AddAddressStringToOrder.designer.cs">
       <DependentUpon>202002191634361_AddAddressStringToOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002201403355_UpdateDataInPizzaTable.cs" />
+    <Compile Include="Migrations\202002201403355_UpdateDataInPizzaTable.designer.cs">
+      <DependentUpon>202002201403355_UpdateDataInPizzaTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002201413598_UpdateDataInDeliverersTable.cs" />
+    <Compile Include="Migrations\202002201413598_UpdateDataInDeliverersTable.designer.cs">
+      <DependentUpon>202002201413598_UpdateDataInDeliverersTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
@@ -250,6 +257,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002191634361_AddAddressStringToOrder.resx">
       <DependentUpon>202002191634361_AddAddressStringToOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002201403355_UpdateDataInPizzaTable.resx">
+      <DependentUpon>202002201403355_UpdateDataInPizzaTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002201413598_UpdateDataInDeliverersTable.resx">
+      <DependentUpon>202002201413598_UpdateDataInDeliverersTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
