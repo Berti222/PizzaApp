@@ -23,8 +23,7 @@ namespace PizzaApp.Controllers
         }
         // GET: Ordering
         public ActionResult Index()
-        {         
-            
+        {      
             return View();
         }
 
@@ -39,12 +38,17 @@ namespace PizzaApp.Controllers
             return View(found);
         }
 
-        public ActionResult SearchGuest(Guest guest)
+        public ActionResult SearchGuest(int guestId)
         {
+            Guest guest = _context.Guests.Where(g => g.Id == guestId).SingleOrDefault();
+
             if (guest == null)
                 return HttpNotFound();
-            
-            return View(guest);
+
+            List<Guest> singleGuestInList = new List<Guest>();
+            singleGuestInList.Add(guest);
+
+            return View(singleGuestInList);
         }
 
         public ActionResult PizzaOrdering(Guest guest)
@@ -56,5 +60,7 @@ namespace PizzaApp.Controllers
 
             return View(order);
         }
+
+        
     }
 }

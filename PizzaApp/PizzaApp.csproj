@@ -213,6 +213,7 @@
     <Content Include="Views\Guest\Register.cshtml" />
     <Content Include="Views\Address\New.cshtml" />
     <Content Include="Views\Ordering\SearchGuest.cshtml" />
+    <Content Include="Views\Guest\ShowGuest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

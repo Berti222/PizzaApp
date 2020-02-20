@@ -1,0 +1,40 @@
+﻿@model PizzaApp.Models.Guest
+
+@{
+    ViewBag.Title = "ShowGuest";
+}
+
+<h2>ShowGuest</h2>
+
+<div>
+    <h4>Guest</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Addresses)
+        </dt>
+
+        <dd>
+            @Html.DropDownListFor(a => a.Addresses, new SelectList(Model.Addresses, "Id", "GuestAddress"), new { @class = "form-control" })
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("új cím hozzáadása", "New", "Address",new { id = Model.Id },null) |
+</p>

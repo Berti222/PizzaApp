@@ -39,7 +39,7 @@ namespace PizzaApp.Controllers
 
             Guest guest = _context.Guests.Where(g => g.Id == address.GusetId).SingleOrDefault();
 
-            return RedirectToAction("SelectedGuest", "Ordering", new {guest});
+            return RedirectToAction("ShowGuest", "Guest", new {guest.Id});
         }
     }
 }
