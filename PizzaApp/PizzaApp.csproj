@@ -179,6 +179,7 @@
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Pizza.cs" />
     <Compile Include="Models\PizzaAppContext.cs" />
+    <Compile Include="Models\PizzaOrderingDTO.cs" />
     <Compile Include="Models\StatusName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -221,10 +222,10 @@
     <Content Include="Views\Address\New.cshtml" />
     <Content Include="Views\Ordering\SearchGuest.cshtml" />
     <Content Include="Views\Guest\ShowGuest.cshtml" />
+    <Content Include="Views\Ordering\PizzaOrdering.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Pizzas\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

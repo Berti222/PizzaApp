@@ -38,37 +38,60 @@ namespace PizzaApp.Controllers
             return View(found);
         }
 
-        public ActionResult SearchGuest(int guestId)
+        [HttpPost]
+        public ActionResult SearchGuest(Guest guestName)
         {
-            Guest guest = _context.Guests.Where(g => g.Id == guestId).SingleOrDefault();
+            string name = guestName.Name;
+            List<Guest> guests = _context.Guests.Where(g => g.Name == name).Include(g => g.Addresses).ToList();
 
-            if (guest == null)
+            if (guests.Count == 0)
                 return HttpNotFound();
 
-            List<Guest> singleGuestInList = new List<Guest>();
-            singleGuestInList.Add(guest);
-
-            return View(singleGuestInList);
+            return View(guests);
         }
 
         public ActionResult PizzaOrdering(int id)
         {
-            Address address = _context.Addresses.Where(a => a.Id == id).SingleOrDefault();
+            List<Address> addresses = _context.Addresses.Where(a => a.GusetId == id).ToList();
 
-            if (address == null)
-                return HttpNotFound();
-
-            Guest guest = _context.Guests.Where(g => g.Id == address.GusetId).SingleOrDefault();
+            Guest guest = _context.Guests.Where(g => g.Id == id).SingleOrDefault();
 
             Order order = new Order();
 
             order.GuestId = guest.Id;
-            order.Address = address.GuestAddress;
             order.Guest = guest;
 
-            return View(order);
+            PizzaOrderingDTO dto = new PizzaOrderingDTO()
+            {
+                Addresses = addresses,
+                Guest = guest,
+                Order = order,
+                Pizzas = _context.Pizzas.ToList(),
+                Deliverers = _context.Deliverers.Where(x => !x.IsOnWay).ToList()
+            };
+
+            return View(dto);
         }
 
-        
+        [HttpPost]
+        public ActionResult Order(PizzaOrderingDTO dto)
+        {
+            Order order = new Order();
+
+            order.Address = dto.Order.Address;
+            order.Name = dto.Guest.Name;
+            order.GuestId = dto.Guest.Id;
+            order.Guest = dto.Guest;
+            order.DelivererId = dto.Order.DelivererId;
+            order.OrderTime = DateTime.Now;
+            order.Status = StatusName.VaitingForDelivering;
+
+            _context.Orders.Add(order);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index","Home");
+        }
+
+
     }
 }

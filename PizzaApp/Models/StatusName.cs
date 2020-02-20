@@ -5,10 +5,10 @@ using System.Web;
 
 namespace PizzaApp.Models
 {
-    public class StatusName
+    public static class StatusName
     {
         public const string VaitingForDelivering = "SZÁLÍTÁSRA VÁR";
-        public const string Active = "kIKÜLDÖTT";
+        public const string Active = "KIKÜLDÖTT";
         public const string Delivered = "LEZÁRT";
     }
 }

@@ -1,0 +1,69 @@
+﻿@model PizzaApp.Models.PizzaOrderingDTO
+@{
+    ViewBag.Title = "PizzaOrdering";
+}
+
+<h2>Pizza rendelés</h2>
+
+@using (Html.BeginForm("Order", "Ordering"))
+{
+    <div>
+        @Html.LabelFor(x => x.Guest.Name)
+        @Html.TextBoxFor(x => x.Guest.Name, new { @class = "form-control" })
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Guest.PhoneNumber)
+        @Html.TextBoxFor(x => x.Guest.PhoneNumber, new { @class = "form-control" })
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Addresses)
+        @Html.DropDownListFor(a => a.Order.Address, new SelectList(Model.Addresses, "GuestAddress", "GuestAddress"), new { @class = "form-control" })
+    </div>
+    <br />
+    <br />
+
+    <div>@Html.LabelFor(x => x.Order.Pizzas)</div>
+    <div>
+        @foreach (var item in Model.Pizzas)
+        {
+            <div class="card border-primary mb-3 unitPriceCard" style="max-width: 18rem; display:inline-block; border: 1px solid black; text-align:center;padding: 10px;">
+                <div class="card-header"> @Html.RadioButtonFor(x => x.Order.Pizzas, item.Id, new { @class = "form-control" })</div>
+                <div class="card-body text-primary">
+                    <p>
+                        @item.Name
+                    </p>
+                    <p>
+                        Ár: @item.Price
+                    </p>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div>
+        @Html.LabelFor(x => x.Order.Deliverer)
+        <div>
+            @foreach (var item in Model.Deliverers)
+            {
+                <div class="card border-primary mb-3 unitPriceCard" style="max-width: 18rem; display:inline-block; border: 1px solid black; text-align:center; padding: 10px;">
+                    <div class="card-header"> @Html.RadioButtonFor(x => x.Order.DelivererId, item.Id, new { @class = "form-control" })</div>
+                    <div class="card-body text-primary">
+                        <p>
+                            @item.Name
+                        </p>
+                        <p> Jármű: </p>
+                        <p>
+                            @item.Vehicle
+                        </p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+
+    @Html.AntiForgeryToken()
+    <div class="text-center p-4">
+        <button type="submit" class="btn btn-primary">Rendelés leadása</button>
+    </div>
+}
