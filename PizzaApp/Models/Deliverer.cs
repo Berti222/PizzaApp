@@ -9,7 +9,7 @@ namespace PizzaApp.Models
     public class Deliverer
     {
         public int Id { get; set; }
-        [Display(Name ="Név")]
+        [Display(Name ="Futár neve")]
         public string Name { get; set; }
         [Display(Name = "Jármű")]
         public string Vehicle { get; set; }

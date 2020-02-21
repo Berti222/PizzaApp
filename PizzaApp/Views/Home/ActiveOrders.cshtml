@@ -72,7 +72,7 @@
         <td>
             @if(item.DelivererId == null)
             {
-                @Html.ActionLink("Szálító Hozzrendelése", "AssignDeliverer", new { id = item.Id })
+                @Html.ActionLink("Szálító Hozzrendelése", "AssignDeliverer", new { id = item.Id }, new { @class="btn btn-primary"})
             }            
         </td>
     </tr>

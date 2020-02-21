@@ -3,14 +3,16 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Megrendelők keresése</h2>
 
 
 @using (Html.BeginForm("SearchGuest", "Ordering"))
 {
     <h4>A rendelő neve:</h4>
     @Html.TextBoxFor(g => g.Name, new { @class = "form-control" })
-
+    <div>(Név egy része is elegendő!)</div>
+    <div>(Rendelés leadása a keresés után)</div>
+    <br />
     <div>
         <button type="submit" class="btn btn-primary">Keresés</button>
     </div>

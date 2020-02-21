@@ -78,6 +78,14 @@ namespace PizzaApp.Controllers
             }
         }
 
-
+        public ActionResult AllOrders()
+        {
+            List<Order> orders = _context.Orders
+                                .Include(o => o.Guest)
+                                .Include(o => o.Deliverer)
+                                .OrderByDescending(o => o.OrderTime)
+                                .ToList();
+            return View(orders);
+        }
     }
 }

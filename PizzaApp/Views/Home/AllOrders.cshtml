@@ -1,0 +1,84 @@
+﻿@model IEnumerable<PizzaApp.Models.Order>
+
+@{
+    ViewBag.Title = "AllOrders";
+}
+
+<h2>Összes rendelés</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DelivererId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Deliverer.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Guest.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DelivererId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deliverer.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Guest.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+
+            <td>
+                @if (item.DelivererId == null)
+                {
+                    @Html.ActionLink("Szálító Hozzrendelése", "AssignDeliverer", new { id = item.Id })
+                }
+            </td>
+        </tr>
+    }
+
+</table>
+
+

@@ -14,6 +14,7 @@ namespace PizzaApp.Models
         [Display(Name = "Telefonszám")]
         public string PhoneNumber { get; set; }
 
+        [Display(Name = "Címek")]
         public List<Address> Addresses { get; set; }
     }
 }

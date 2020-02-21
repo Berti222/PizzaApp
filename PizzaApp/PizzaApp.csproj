@@ -243,6 +243,7 @@
     <Content Include="Views\Home\ActiveOrders.cshtml" />
     <Content Include="Views\Home\AssignDeliverer.cshtml" />
     <Content Include="Views\Deliverer\Index.cshtml" />
+    <Content Include="Views\Home\AllOrders.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
