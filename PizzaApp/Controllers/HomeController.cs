@@ -87,5 +87,12 @@ namespace PizzaApp.Controllers
                                 .ToList();
             return View(orders);
         }
+
+        public ActionResult ShowPizzas(int id)
+        {
+            List<OrderedPizzas> pizzas = _context.OrderedPizzas.Where(x => x.OrderId == id).ToList();
+
+            return View(pizzas);
+        }
     }
 }

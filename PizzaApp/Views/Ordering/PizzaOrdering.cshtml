@@ -20,27 +20,6 @@
         @Html.DropDownListFor(a => a.Order.Address, new SelectList(Model.Addresses, "GuestAddress", "GuestAddress"), new { @class = "form-control" })
     </div>
     <br />
-
-
-    <div>@Html.LabelFor(x => x.Order.Pizzas)</div>
-    <div>
-        @foreach (var item in Model.Pizzas)
-        {
-            <div class="card border-primary mb-3 unitPriceCard" style="max-width: 18rem; display:inline-block; border: 1px solid black; text-align:center;padding: 10px;">
-                <div class="card-header"> @Html.RadioButtonFor(x => x.Order.Pizzas, item.Id, new { @class = "form-control" })</div>
-                <div class="card-body text-primary">
-                    <p>
-                        @item.Name
-                    </p>
-                    <p>
-                        Ár: @item.Price
-                    </p>
-                </div>
-            </div>
-        }
-    </div>
-
-
     <br />
     @Html.AntiForgeryToken()
     <div class="text-center p-4">

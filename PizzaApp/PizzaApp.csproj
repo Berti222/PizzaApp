@@ -251,6 +251,7 @@
     <Content Include="Views\Deliverer\Index.cshtml" />
     <Content Include="Views\Home\AllOrders.cshtml" />
     <Content Include="Views\Ordering\ChoosePizza.cshtml" />
+    <Content Include="Views\Home\ShowPizzas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
