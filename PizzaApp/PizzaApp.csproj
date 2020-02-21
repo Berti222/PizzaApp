@@ -195,6 +195,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\ChoosPizzasDTO.cs" />
     <Compile Include="Models\Deliverer.cs" />
     <Compile Include="Models\Guest.cs" />
     <Compile Include="Models\Order.cs" />
@@ -249,6 +250,7 @@
     <Content Include="Views\Home\AssignDeliverer.cshtml" />
     <Content Include="Views\Deliverer\Index.cshtml" />
     <Content Include="Views\Home\AllOrders.cshtml" />
+    <Content Include="Views\Ordering\ChoosePizza.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

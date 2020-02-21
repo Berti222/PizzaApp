@@ -1,0 +1,92 @@
+﻿@model PizzaApp.Models.ChoosPizzasDTO
+@{
+    ViewBag.Title = "ChoosePizza";
+}
+
+<h2>ChoosePizza</h2>
+
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>
+            Pizza neve
+        </th>
+        <th>
+            Pizza Ára
+        </th>
+        <th>
+            Rendelési Mennyiség
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Ordereds)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>
+                @item.PizzaName
+            </td>
+            <td>
+                @item.Price
+            </td>
+            <td>
+                @item.Count
+            </td>
+        </tr>
+
+    }
+
+</table>
+<br />
+<br />
+<br />
+
+<h2>Pizzák kiválasztása</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Pizza neve
+        </th>
+        <th>
+            Pizza Ára
+        </th>
+
+        <th></th>
+    </tr>
+
+    @using (Html.BeginForm("AddPizza", "Ordering"))
+    {
+        <div>
+            Rendelési Mennyiség :
+        </div>
+        <div>
+            @Html.TextBoxFor(x => x.OrderedPizzas.Count, new { @class = "form-control", @type = "number" })
+        </div>
+        @Html.HiddenFor(x => x.OrderedPizzas.OrderId);
+        for (int i = 0; i < Model.Pizzas.Count; i++)
+        {
+            @Html.HiddenFor(modelItem => Model.Pizzas[i].Id);
+            <tr>
+                <td>
+                    <div class="card-header"> @Html.RadioButtonFor(x => x.OrderedPizzas.PizzaId, Model.Pizzas[i].Id, new { @class = "form-control" })</div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Pizzas[i].Name)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Pizzas[i].Price) Ft
+
+                </td>
+            </tr>
+        }
+        @Html.AntiForgeryToken()
+        <div class="text-center p-4">
+            <button type="submit" class="btn btn-primary">Hozzáad</button>
+        </div>
+    }
+
+</table>
+

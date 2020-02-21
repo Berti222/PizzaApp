@@ -50,6 +50,7 @@ namespace PizzaApp.Controllers
             Guest guest = _context.Guests.Where(g => g.Id == id).SingleOrDefault();
 
             Order order = new Order();
+            OrderedPizzas orderedPizzas = new OrderedPizzas();
 
             order.GuestId = guest.Id;
             order.Guest = guest;
@@ -60,7 +61,7 @@ namespace PizzaApp.Controllers
                 Guest = guest,
                 Order = order,
                 Pizzas = _context.Pizzas.ToList(),
-                Deliverers = _context.Deliverers.Where(x => !x.IsOnWay).ToList()
+                Deliverers = _context.Deliverers.Where(x => !x.IsOnWay).ToList(),
             };
 
             return View(dto);
@@ -82,7 +83,43 @@ namespace PizzaApp.Controllers
             _context.Orders.Add(order);
             _context.SaveChanges();
 
-            return RedirectToAction("ActiveOrders","Home");
+            return RedirectToAction("ChoosePizza", "Ordering", new { order.Id });
+        }
+
+        public ActionResult ChoosePizza(int id)
+        {
+            List<OrderedPizzas> ordered = _context.OrderedPizzas.Where(x => x.OrderId == id).ToList();
+            OrderedPizzas ordering = new OrderedPizzas();
+            ordering.OrderId = id;
+
+            ChoosPizzasDTO dto = new ChoosPizzasDTO()
+            {
+                OrderedPizzas = ordering,
+                Pizzas = _context.Pizzas.ToList(),
+                Ordereds = ordered
+            };
+            return View(dto);
+        }
+
+        [HttpPost]
+        public ActionResult AddPizza(ChoosPizzasDTO order)
+        {
+            Pizza pizza = _context.Pizzas.Where(x => x.Id == order.OrderedPizzas.PizzaId).SingleOrDefault();
+
+            if (pizza == null)
+                return HttpNotFound();
+
+            OrderedPizzas ordered = new OrderedPizzas();
+            ordered.OrderId = order.OrderedPizzas.OrderId;
+            ordered.Count = order.OrderedPizzas.Count;
+            ordered.PizzaName = pizza.Name;
+            ordered.PizzaId = pizza.Id;
+            ordered.Price = pizza.Price * ordered.Count;
+            
+            _context.OrderedPizzas.Add(ordered);
+            _context.SaveChanges();
+
+            return RedirectToAction("ChoosePizza", new { id = ordered.OrderId });
         }
 
     }
