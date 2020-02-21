@@ -242,10 +242,10 @@
     <Content Include="Views\Ordering\PizzaOrdering.cshtml" />
     <Content Include="Views\Home\ActiveOrders.cshtml" />
     <Content Include="Views\Home\AssignDeliverer.cshtml" />
+    <Content Include="Views\Deliverer\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Deliverer\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
