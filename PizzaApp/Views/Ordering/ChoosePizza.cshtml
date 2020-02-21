@@ -90,4 +90,4 @@
 
 </table>
 
-@Html.ActionLink("Rendelés Befejezése","ActiveOrders","Home",null,new { @class= "btn btn-success" })
+@Html.ActionLink("Rendelés Befejezése", "AllPizzaPrice", new { id = Model.OrderedPizzas.OrderId}, new { @class= "btn btn-success" })

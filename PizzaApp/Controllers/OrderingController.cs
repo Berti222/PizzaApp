@@ -23,7 +23,7 @@ namespace PizzaApp.Controllers
         }
         // GET: Ordering
         public ActionResult Index()
-        {      
+        {
             return View();
         }
 
@@ -34,7 +34,7 @@ namespace PizzaApp.Controllers
             List<Guest> guests = _context.Guests.Where(g => g.Name.ToLower().Contains(name)).ToList();
             foreach (Guest guest in guests)
             {
-                guest.Addresses = _context.Addresses.Where(x => x.GusetId == guest.Id).ToList();                
+                guest.Addresses = _context.Addresses.Where(x => x.GusetId == guest.Id).ToList();
             }
 
             if (guests.Count == 0)
@@ -115,12 +115,29 @@ namespace PizzaApp.Controllers
             ordered.PizzaName = pizza.Name;
             ordered.PizzaId = pizza.Id;
             ordered.Price = pizza.Price * ordered.Count;
-            
+
             _context.OrderedPizzas.Add(ordered);
             _context.SaveChanges();
 
             return RedirectToAction("ChoosePizza", new { id = ordered.OrderId });
         }
 
+        public ActionResult AllPizzaPrice(int id)
+        {
+            List<OrderedPizzas> pizzas = _context.OrderedPizzas.Where(x => x.OrderId == id).ToList();
+
+            int count = 0;
+            foreach (var item in pizzas)
+            {
+                count += item.Price;
+            }
+
+            Order order = _context.Orders.Where(x => x.Id == id).SingleOrDefault();
+
+            order.FullPrice = count;
+            _context.SaveChanges();
+
+            return RedirectToAction("ActiveOrders", "Home");
+        }
     }
 }
