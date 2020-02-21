@@ -1,0 +1,38 @@
+﻿@model PizzaApp.Models.PizzaOrderingDTO
+
+@{
+    ViewBag.Title = "AssignDeliverer";
+}
+
+<h2>AssignDeliverer</h2>
+
+@using (Html.BeginForm("Assign", "Home"))
+{
+        @Html.HiddenFor(x => x.Order.Id)
+    <div>
+        @Html.LabelFor(x => x.Order.Deliverer)
+        <div>
+            @foreach (var item in Model.Deliverers)
+            {
+                <div class="card border-primary mb-3 unitPriceCard" style="max-width: 18rem; display:inline-block; border: 1px solid black; text-align:center; padding: 10px;">
+                    <div class="card-header"> @Html.RadioButtonFor(x => x.Order.DelivererId, item.Id, new { @class = "form-control" })</div>
+                    <div class="card-body text-primary">
+                        <p>
+                            @item.Name
+                        </p>
+                        <p> Jármű: </p>
+                        <p>
+                            @item.Vehicle
+                        </p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    @Html.AntiForgeryToken()
+    <div class="text-center p-4">
+        <button type="submit" class="btn btn-primary">Futár hozzárendelése</button>
+    </div>
+}
+

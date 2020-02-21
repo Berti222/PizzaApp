@@ -12,6 +12,8 @@ namespace PizzaApp.Models
         public string Vehicle { get; set; }
 
         public bool IsOnWay { get; set; }
+        public int Capacity { get; set; }
+        public bool IsFull { get; set; }
 
         public List<Order> Orders { get; set; }
     }

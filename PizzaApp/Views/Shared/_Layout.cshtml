@@ -19,10 +19,10 @@
                 @Html.ActionLink("Pizza app", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>                    
-                    <li>@Html.ActionLink("Új személy regisztrálás", "Register", "Guest")</li>                    
+                <ul class="nav navbar-nav">                 
+                    <li>@Html.ActionLink("Aktív rendelések", "ActiveOrders", "Home")</li>                    
                     <li>@Html.ActionLink("Vendég keresése", "Index", "Ordering")</li>                    
+                    <li>@Html.ActionLink("Új személy regisztrálás", "Register", "Guest")</li>                    
                 </ul>
             </div>
         </div>

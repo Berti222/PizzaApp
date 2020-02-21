@@ -91,3 +91,7 @@ C:\Users\Berti\source\repos\PizzaApp\PizzaApp\obj\Debug\PizzaApp.Migrations.AddO
 C:\Users\Berti\source\repos\PizzaApp\PizzaApp\obj\Debug\PizzaApp.Migrations.AddAddressStringToOrder.resources
 C:\Users\Berti\source\repos\PizzaApp\PizzaApp\obj\Debug\PizzaApp.Migrations.UpdateDataInPizzaTable.resources
 C:\Users\Berti\source\repos\PizzaApp\PizzaApp\obj\Debug\PizzaApp.Migrations.UpdateDataInDeliverersTable.resources
+C:\Users\Berti\source\repos\PizzaApp\PizzaApp\obj\Debug\PizzaApp.Migrations.NullableDeliverIdInOrder.resources
+C:\Users\Berti\source\repos\PizzaApp\PizzaApp\obj\Debug\PizzaApp.Migrations.AddCapacityToDeliverer.resources
+C:\Users\Berti\source\repos\PizzaApp\PizzaApp\obj\Debug\PizzaApp.Migrations.PutDataInDeliverersTable.resources
+C:\Users\Berti\source\repos\PizzaApp\PizzaApp\obj\Debug\PizzaApp.Migrations.IsFullInDeliverer.resources

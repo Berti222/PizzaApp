@@ -27,25 +27,18 @@ namespace PizzaApp.Controllers
             return View();
         }
 
-        public ActionResult SearchGuest(string guestName)
-        {
-            if (guestName == null)
-                return HttpNotFound();
-
-            string name = guestName.Trim().ToLower();
-
-            List<Guest> found = _context.Guests.Where(g => g.Name.Trim().ToLower().Contains(name)).Include(g => g.Addresses).ToList();
-            return View(found);
-        }
-
         [HttpPost]
         public ActionResult SearchGuest(Guest guestName)
         {
-            string name = guestName.Name;
-            List<Guest> guests = _context.Guests.Where(g => g.Name == name).Include(g => g.Addresses).ToList();
+            string name = guestName.Name.Trim().ToLower();
+            List<Guest> guests = _context.Guests.Where(g => g.Name.ToLower().Contains(name)).ToList();
+            foreach (Guest guest in guests)
+            {
+                guest.Addresses = _context.Addresses.Where(x => x.GusetId == guest.Id).ToList();                
+            }
 
             if (guests.Count == 0)
-                return HttpNotFound();
+                return RedirectToAction("Register", "Guest");
 
             return View(guests);
         }
@@ -89,7 +82,7 @@ namespace PizzaApp.Controllers
             _context.Orders.Add(order);
             _context.SaveChanges();
 
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("ActiveOrders","Home");
         }
 
 

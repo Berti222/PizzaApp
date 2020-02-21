@@ -20,7 +20,7 @@
                 <td>@item.Name</td>
                 <td>@item.PhoneNumber</td>
                 <td>@Html.DropDownListFor(a => item.Addresses, new SelectList(item.Addresses,"Id", "GuestAddress"), new { @class = "form-control" })</td>
-                <td></td>
+                <td>@Html.ActionLink("Vendég Adatai és rendelés leadása","ShowGuest","Guest", new { id = item.Id }, new { @class = "btn btn-primary" })</td>
             </tr>
         }
     </tbody>

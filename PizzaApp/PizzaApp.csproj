@@ -134,6 +134,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AddressController.cs" />
+    <Compile Include="Controllers\DelivererController.cs" />
     <Compile Include="Controllers\GuestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderingController.cs" />
@@ -171,6 +172,22 @@
     <Compile Include="Migrations\202002201413598_UpdateDataInDeliverersTable.cs" />
     <Compile Include="Migrations\202002201413598_UpdateDataInDeliverersTable.designer.cs">
       <DependentUpon>202002201413598_UpdateDataInDeliverersTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002210707000_NullableDeliverIdInOrder.cs" />
+    <Compile Include="Migrations\202002210707000_NullableDeliverIdInOrder.designer.cs">
+      <DependentUpon>202002210707000_NullableDeliverIdInOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002210736267_AddCapacityToDeliverer.cs" />
+    <Compile Include="Migrations\202002210736267_AddCapacityToDeliverer.designer.cs">
+      <DependentUpon>202002210736267_AddCapacityToDeliverer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002210740376_PutDataInDeliverersTable.cs" />
+    <Compile Include="Migrations\202002210740376_PutDataInDeliverersTable.designer.cs">
+      <DependentUpon>202002210740376_PutDataInDeliverersTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002210920563_IsFullInDeliverer.cs" />
+    <Compile Include="Migrations\202002210920563_IsFullInDeliverer.designer.cs">
+      <DependentUpon>202002210920563_IsFullInDeliverer.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
@@ -223,9 +240,12 @@
     <Content Include="Views\Ordering\SearchGuest.cshtml" />
     <Content Include="Views\Guest\ShowGuest.cshtml" />
     <Content Include="Views\Ordering\PizzaOrdering.cshtml" />
+    <Content Include="Views\Home\ActiveOrders.cshtml" />
+    <Content Include="Views\Home\AssignDeliverer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Deliverer\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -264,6 +284,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002201413598_UpdateDataInDeliverersTable.resx">
       <DependentUpon>202002201413598_UpdateDataInDeliverersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002210707000_NullableDeliverIdInOrder.resx">
+      <DependentUpon>202002210707000_NullableDeliverIdInOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002210736267_AddCapacityToDeliverer.resx">
+      <DependentUpon>202002210736267_AddCapacityToDeliverer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002210740376_PutDataInDeliverersTable.resx">
+      <DependentUpon>202002210740376_PutDataInDeliverersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002210920563_IsFullInDeliverer.resx">
+      <DependentUpon>202002210920563_IsFullInDeliverer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
