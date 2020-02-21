@@ -189,11 +189,16 @@
     <Compile Include="Migrations\202002210920563_IsFullInDeliverer.designer.cs">
       <DependentUpon>202002210920563_IsFullInDeliverer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002211156590_AddOrderedPizzas.cs" />
+    <Compile Include="Migrations\202002211156590_AddOrderedPizzas.designer.cs">
+      <DependentUpon>202002211156590_AddOrderedPizzas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Deliverer.cs" />
     <Compile Include="Models\Guest.cs" />
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderedPizzas.cs" />
     <Compile Include="Models\Pizza.cs" />
     <Compile Include="Models\PizzaAppContext.cs" />
     <Compile Include="Models\PizzaOrderingDTO.cs" />
@@ -297,6 +302,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002210920563_IsFullInDeliverer.resx">
       <DependentUpon>202002210920563_IsFullInDeliverer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002211156590_AddOrderedPizzas.resx">
+      <DependentUpon>202002211156590_AddOrderedPizzas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -18,6 +18,7 @@ namespace PizzaApp.Models
         public DbSet<Pizza> Pizzas { get; set; }
         public DbSet<Deliverer> Deliverers { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderedPizzas> OrderedPizzas { get; set; }
 
     }
 }

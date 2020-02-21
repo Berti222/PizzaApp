@@ -95,3 +95,4 @@ C:\Users\Berti\source\repos\PizzaApp\PizzaApp\obj\Debug\PizzaApp.Migrations.Null
 C:\Users\Berti\source\repos\PizzaApp\PizzaApp\obj\Debug\PizzaApp.Migrations.AddCapacityToDeliverer.resources
 C:\Users\Berti\source\repos\PizzaApp\PizzaApp\obj\Debug\PizzaApp.Migrations.PutDataInDeliverersTable.resources
 C:\Users\Berti\source\repos\PizzaApp\PizzaApp\obj\Debug\PizzaApp.Migrations.IsFullInDeliverer.resources
+C:\Users\Berti\source\repos\PizzaApp\PizzaApp\obj\Debug\PizzaApp.Migrations.AddOrderedPizzas.resources
