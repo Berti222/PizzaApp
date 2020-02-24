@@ -90,7 +90,7 @@ namespace PizzaApp.Controllers
 
         public ActionResult ShowPizzas(int id)
         {
-            List<OrderedPizzas> pizzas = _context.OrderedPizzas.Where(x => x.OrderId == id).ToList();
+            List<OrderedPizzas> pizzas = _context.OrderedPizzas.Where(x => x.OrderId == id).Include(x => x.Order).ToList();
 
             return View(pizzas);
         }

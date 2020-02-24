@@ -106,8 +106,8 @@ namespace PizzaApp.Controllers
         {
             Pizza pizza = _context.Pizzas.Where(x => x.Id == order.OrderedPizzas.PizzaId).SingleOrDefault();
 
-            if (pizza == null)
-                return HttpNotFound();
+            if(order.OrderedPizzas.Count == 0 || pizza == null)
+                return RedirectToAction("ChoosePizza", new { id = order.OrderedPizzas.OrderId });
 
             OrderedPizzas orderedPizzasInDb = _context.OrderedPizzas.Where(x => x.OrderId == order.OrderedPizzas.OrderId && x.PizzaId == pizza.Id).SingleOrDefault();
 
@@ -123,18 +123,15 @@ namespace PizzaApp.Controllers
                 ordered.Price = pizza.Price * ordered.Count;
 
                 _context.OrderedPizzas.Add(ordered);
-
-                orderId = ordered.OrderId;
             }
             else
             {               
                 orderedPizzasInDb.Count += order.OrderedPizzas.Count;                
-                orderedPizzasInDb.Price = pizza.Price * orderedPizzasInDb.Count;
-                orderId = orderedPizzasInDb.OrderId;
+                orderedPizzasInDb.Price = pizza.Price * orderedPizzasInDb.Count;                
             }
             _context.SaveChanges();
 
-            return RedirectToAction("ChoosePizza", new { id = orderId });
+            return RedirectToAction("ChoosePizza", new { id = order.OrderedPizzas.OrderId });
         }
 
         public ActionResult AllPizzaPrice(int id)

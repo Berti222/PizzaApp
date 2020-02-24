@@ -12,16 +12,16 @@
             @Html.DisplayNameFor(model => model.Order.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Pizza.Name)
+            @Html.DisplayNameFor(model => model.Order.Address)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PizzaName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Price)
+            @Html.DisplayNameFor(model => model.Count)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Count)
+            @Html.DisplayNameFor(model => model.Price)
         </th>
         <th></th>
     </tr>
@@ -32,16 +32,16 @@
             @Html.DisplayFor(modelItem => item.Order.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Pizza.Name)
+            @Html.DisplayFor(modelItem => item.Order.Address)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PizzaName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Price)
+            @Html.DisplayFor(modelItem => item.Count) DB
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Count)
+            @Html.DisplayFor(modelItem => item.Price) Ft
         </td>
     </tr>
 }

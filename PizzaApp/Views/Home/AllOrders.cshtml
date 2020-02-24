@@ -33,7 +33,7 @@
             @Html.DisplayNameFor(model => model.FullPrice)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Status)
+            &nbsp;
         </th>
 
         <th></th>
@@ -67,14 +67,7 @@
                 @Html.DisplayFor(modelItem => item.FullPrice)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-
-            <td>
-                @if (item.DelivererId == null)
-                {
-                    @Html.ActionLink("Szálító Hozzrendelése", "AssignDeliverer", new { id = item.Id })
-                }
+                @Html.ActionLink("Rendelt Pizzák", "ShowPizzas", new { id = item.Id }, new { @class = "btn btn-default" })
             </td>
         </tr>
     }
