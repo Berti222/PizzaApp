@@ -15,7 +15,7 @@ namespace PizzaApp.Models
         public string Vehicle { get; set; }
         [Display(Name = "Úton van?")]
         public bool IsOnWay { get; set; }
-        [Display(Name = "Capacítás")]
+        [Display(Name = "Kapacítás")]
         public int Capacity { get; set; }
         [Display(Name = "Tele van?")]
         public bool IsFull { get; set; }
