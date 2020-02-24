@@ -109,17 +109,32 @@ namespace PizzaApp.Controllers
             if (pizza == null)
                 return HttpNotFound();
 
-            OrderedPizzas ordered = new OrderedPizzas();
-            ordered.OrderId = order.OrderedPizzas.OrderId;
-            ordered.Count = order.OrderedPizzas.Count;
-            ordered.PizzaName = pizza.Name;
-            ordered.PizzaId = pizza.Id;
-            ordered.Price = pizza.Price * ordered.Count;
+            OrderedPizzas orderedPizzasInDb = _context.OrderedPizzas.Where(x => x.OrderId == order.OrderedPizzas.OrderId && x.PizzaId == pizza.Id).SingleOrDefault();
 
-            _context.OrderedPizzas.Add(ordered);
+            int orderId;
+
+            if(orderedPizzasInDb == null)
+            {
+                OrderedPizzas ordered = new OrderedPizzas();
+                ordered.OrderId = order.OrderedPizzas.OrderId;
+                ordered.Count = order.OrderedPizzas.Count;
+                ordered.PizzaName = pizza.Name;
+                ordered.PizzaId = pizza.Id;
+                ordered.Price = pizza.Price * ordered.Count;
+
+                _context.OrderedPizzas.Add(ordered);
+
+                orderId = ordered.OrderId;
+            }
+            else
+            {               
+                orderedPizzasInDb.Count += order.OrderedPizzas.Count;                
+                orderedPizzasInDb.Price = pizza.Price * orderedPizzasInDb.Count;
+                orderId = orderedPizzasInDb.OrderId;
+            }
             _context.SaveChanges();
 
-            return RedirectToAction("ChoosePizza", new { id = ordered.OrderId });
+            return RedirectToAction("ChoosePizza", new { id = orderId });
         }
 
         public ActionResult AllPizzaPrice(int id)
