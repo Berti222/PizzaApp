@@ -42,7 +42,7 @@ namespace PizzaApp.Controllers
         public ActionResult AssignDeliverer(int id)
         {
             Order order = _context.Orders.Where(o => o.Id == id).SingleOrDefault();
-            List<Deliverer> deliverers = _context.Deliverers.Where(x=> !x.IsFull).ToList();
+            List<Deliverer> deliverers = _context.Deliverers.Where(x=> !x.IsFull && !x.IsOnWay).ToList();
 
             PizzaOrderingDTO dto = new PizzaOrderingDTO();
             dto.Order = order;
